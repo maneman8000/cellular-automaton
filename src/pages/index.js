@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import { Link } from "gatsby";
 import { css } from "@emotion/core";
 import {Cell, Grid, Row} from '@material/react-layout-grid';
 import Card, {
@@ -12,14 +13,16 @@ export default () => {
   const CellCanvas = (
     (props) => (
       <Cell columns={3}>
-        <Card css={css`
-          padding: 8px;
-        `}>
-          <CardPrimaryContent>
-            <h2>{props.i}</h2>
-            <Canvas className="mdc-card__media-content" number={props.i} canvasWidth={100} canvasHeight={50} />
-          </CardPrimaryContent>
-        </Card>
+        <Link to={"/" + String(props.i)}>
+          <Card css={css`
+            padding: 8px;
+          `}>
+            <CardPrimaryContent>
+              <h2>{props.i}</h2>
+              <Canvas className="mdc-card__media-content" number={props.i} canvasWidth={100} canvasHeight={50} />
+            </CardPrimaryContent>
+          </Card>
+        </Link>
       </Cell>
     )
   )

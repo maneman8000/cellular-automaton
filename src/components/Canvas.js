@@ -24,7 +24,9 @@ class Canvas extends React.Component {
     return this.props.canvasWidth || window.innerWidth;
   }
   canvasHeight() {
-    return this.props.canvasHeight || window.innerHeight;
+    const max = Math.floor(this.canvasWidth() / 2);
+    const h = this.props.canvasHeight || window.innerHeight;
+    return h > max ? max : h;
   }
   draw(c) {
     const max = Math.floor(this.canvasWidth() / 2);
