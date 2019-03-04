@@ -21,11 +21,11 @@ class Canvas extends React.Component {
     this.draw(canvas.getContext('2d'));
   }
   canvasWidth() {
-    return this.props.canvasWidth || window.innerWidth;
+    return this.props.canvasWidth || ((typeof window !== "undefined") ? window.innerWidth : 0);
   }
   canvasHeight() {
     const max = Math.floor(this.canvasWidth() / 2);
-    const h = this.props.canvasHeight || window.innerHeight;
+    const h = this.props.canvasHeight || ((typeof window !== "undefined") ? window.innerHeight : 0);
     return h > max ? max : h;
   }
   draw(c) {

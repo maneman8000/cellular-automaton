@@ -12,3 +12,16 @@ exports.createPages = ({ graphql, actions }) => {
     });
   }
 };
+
+exports.onCreateWebpackConfig = ({ stage, loaders, plugins, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      plugins: [
+        plugins.define({
+          "Element": "function () {}",
+          "HTMLElement": "function () {}",
+        }),
+      ],
+    })
+  }
+}
